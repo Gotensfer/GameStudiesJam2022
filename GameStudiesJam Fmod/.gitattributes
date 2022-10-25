@@ -10,3 +10,5 @@
 *.xm lfs
 *.reapeaks lfs
 
+*.bundle text eol=lf
+
