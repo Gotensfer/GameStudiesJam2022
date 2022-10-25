@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{adcb22e4-65ff-4d7c-b2ff-ebe3770236ae}">
+		<property name="assetPath">
+			<value>Renders/Typewriter/typewriter-001.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>11.572244897959184</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a2035c5f-5fdd-430f-92dc-af1ebf8dac4f}</destination>
+		</relationship>
+	</object>
+</objects>
