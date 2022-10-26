@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class StandarEnemy : MonoBehaviour
 {
-    GameObject hero;            
+    Transform hero;
     //Ememy attributes 
+    [Header("Enemy attributes")]
     [SerializeField] float enemyLife, enemySpeed, enemyDamage;
     private Rigidbody rb;
     private Vector3 movement;
     Vector3 heroPosition;
 
+    int health;
+
     void Start()
     {
-        rb= this.GetComponent<Rigidbody>();
-
-        hero = GameObject.FindWithTag("Hero");
-
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        heroPosition = hero.transform.position;
+        heroPosition = hero.position;
         Vector3 direction = heroPosition - transform.position;
 
         //float angle = Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg; //por si usamos sprites para que roten hacia el jugador
@@ -39,6 +39,32 @@ public class StandarEnemy : MonoBehaviour
 
     void MoveEnemy(Vector3 direction)
     {
-        rb.MovePosition((Vector3)transform.position + (direction * enemySpeed * Time.deltaTime));
+        rb.AddForce(enemySpeed * direction);
+    }
+
+    public void SetTarget(Transform player)
+    {
+        hero = player;
+    }
+
+    public void Damage(int amount)
+    {
+        health -= amount;
+
+        if (health <= 0) Death();
+    }
+
+    void Death()
+    {
+        PlayerController.kills++;
+        Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerVitals>().Damage(1);
+        }
     }
 }

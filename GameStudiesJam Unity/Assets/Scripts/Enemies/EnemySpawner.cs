@@ -11,23 +11,38 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float repeatSpawnRate = 3; //cada cuánto tiempo estamos spawneando enemigos
 
 
-    [SerializeField] Transform xRight;
-    [SerializeField] Transform xLeft;
-    [SerializeField] Transform yTop;
-    [SerializeField] Transform yBottom;
+    [SerializeField] Transform northWest;
+    [SerializeField] Transform northEast;
+    [SerializeField] Transform southWest;
+    [SerializeField] Transform southEast;
+
+    [SerializeField] Transform player;
+    [SerializeField] Transform enemyContainer;
+
     void Start()
     {
         InvokeRepeating("SpawnEnemies",timeSpawn,repeatSpawnRate); 
     }
 
+    /* Tener en consideración que: el norte es Z+ y el sur es  Z-
+     *                             el oeste es X- y el este es X+ 
+     * 
+     * n.w : North west  | s.w : South west
+     * n.e : North east  | s.e : South east
+     * 
+     *  n.w - - - n.e
+     *   -  - - -  -
+     *   -  - - -  -
+     *   -  - - -  -
+     *  s.w - - - s.e
+     */
 
     private void SpawnEnemies()
     {
-        Vector3 spawnPosition = new Vector3(0, 0, 0);
 
-        spawnPosition= new Vector3(Random.Range(xRight.position.x, xLeft.position.x),1,Random.Range(yTop.position.z, yBottom.position.z)); //esta muy cursed lo de tener y pero posición en z, sin embargo como el juego es top view, espero se etienda
+        Vector3 spawnPosition = new Vector3(Random.Range(southWest.position.x, northEast.position.x),1,Random.Range(northWest.position.z, southEast.position.z)); //esta muy cursed lo de tener y pero posición en z, sin embargo como el juego es top view, espero se etienda
 
-        GameObject enemy1 = Instantiate(enemies[0],spawnPosition,gameObject.transform.rotation, transform.parent);
-
+        GameObject enemy1 = Instantiate(enemies[0],spawnPosition,gameObject.transform.rotation, enemyContainer);
+        enemy1.GetComponent<StandarEnemy>().SetTarget(player);
     }
 }

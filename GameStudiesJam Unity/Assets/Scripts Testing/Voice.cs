@@ -9,7 +9,7 @@ public class Voice : MonoBehaviour
 {
     private KeywordRecognizer keywordRecognizer;
 
-    private Dictionary<string, Action> wordToAction;
+    public Dictionary<string, Action> wordToAction;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +17,13 @@ public class Voice : MonoBehaviour
         wordToAction.Add("Hercules", Azul);
         wordToAction.Add("Thor", Morado);
 
+        StartCoroutine(initlaaate());
+    }
+
+
+    IEnumerator initlaaate()
+    {
+        yield return new WaitForSeconds(1);
         keywordRecognizer = new KeywordRecognizer(wordToAction.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += WordRecognized;
         keywordRecognizer.Start();
