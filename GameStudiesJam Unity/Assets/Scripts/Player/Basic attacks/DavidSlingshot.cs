@@ -68,8 +68,6 @@ public class DavidSlingshot : MonoBehaviour
         // Si no hay enemigos, no hacer nada
         if (targetEnemy == null) return;
 
-        targetEnemy.GetComponent<MeshRenderer>().material.color = Color.green;
-
         Vector3 attackDirection = GameUtils.DirectionToTarget(transform, targetEnemy);
 
         pellet_instance = Instantiate(pellet, transform.position, Quaternion.identity);
