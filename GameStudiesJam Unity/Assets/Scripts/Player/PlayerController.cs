@@ -21,8 +21,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        inputForward = Input.GetAxis("Vertical");
-        inputSideways = Input.GetAxis("Horizontal");
+        inputForward = Input.GetAxisRaw("Vertical");
+        inputSideways = Input.GetAxisRaw("Horizontal");
 
         movementVector.x = inputSideways;
         movementVector.z = inputForward;

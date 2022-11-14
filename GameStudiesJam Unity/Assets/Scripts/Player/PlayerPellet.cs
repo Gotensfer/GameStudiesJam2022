@@ -25,11 +25,10 @@ public class PlayerPellet : MonoBehaviour
         }
     }
 
-    public void InitializePellet(Vector3 targetPosition, float velocity, int damage)
+    public void InitializePellet(Vector3 direction, float velocity, int damage)
     {
         this.damage = damage;
         rb = GetComponent<Rigidbody>();
-        print((targetPosition - transform.position).normalized * velocity);
-        rb.AddForce((targetPosition - transform.position).normalized * velocity, ForceMode.Impulse);
+        rb.AddForce(direction * velocity, ForceMode.Impulse);
     }
 }

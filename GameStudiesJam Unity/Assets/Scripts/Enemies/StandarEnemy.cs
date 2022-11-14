@@ -39,7 +39,7 @@ public class StandarEnemy : MonoBehaviour
 
     void MoveEnemy(Vector3 direction)
     {
-        rb.AddForce(enemySpeed * direction);
+        rb.MovePosition(transform.position + (enemySpeed * Time.deltaTime * direction));
     }
 
     public void SetTarget(Transform player)
