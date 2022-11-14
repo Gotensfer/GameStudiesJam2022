@@ -371,6 +371,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelUpButton: {fileID: 8029299563148404799}
+  godBlessing: 0
+  levelIndicators:
+  - {fileID: 6228196327499071396}
+  - {fileID: 6228196327835166055}
+  - {fileID: 6228196328331742253}
+  - {fileID: 6228196328262693821}
+  - {fileID: 6228196328340753732}
 --- !u!1 &6228196327835166073
 GameObject:
   m_ObjectHideFlags: 0

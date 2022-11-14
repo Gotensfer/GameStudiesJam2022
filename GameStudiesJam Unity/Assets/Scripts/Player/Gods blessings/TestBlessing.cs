@@ -12,6 +12,9 @@ public class TestBlessing : GodBlessing
     public override int Level { get => level; }
     int level;
 
+    public override BlessingType Blessing { get => blessing; }
+    BlessingType blessing;
+
     private void Start()
     {
         transform.parent.GetComponent<BlessingsSystem>().blessingTick.AddListener(AttemptNormalAttack);

@@ -172,5 +172,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Mjolnir
       objectReference: {fileID: 0}
+    - target: {fileID: 7209451266765087990, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
+        type: 3}
+      propertyPath: godBlessing
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48a67a99aa04abc4aa0bb8c56fd48507, type: 3}

@@ -1887,10 +1887,25 @@ MonoBehaviour:
   - {fileID: 446698137989370669, guid: 0d76a7f93da31124b86395994d811930, type: 3}
   - {fileID: 5594359851020044636, guid: ebd387576c90a0248b4827846d2ae5d3, type: 3}
   - {fileID: 2151718902455324247, guid: cb5c517409766fb4db86ba62746ae4c5, type: 3}
+  ownedLevelUpGUIElements: []
+  ownedBlessings: []
   pickOptionsContainer:
   - {fileID: 291532673}
   - {fileID: 2119981869}
   - {fileID: 2051796964}
+  herculesGauntletBlessing: {fileID: 7018929947340945488, guid: dde4bd4d0a4e518429a8c1501cf958e7,
+    type: 3}
+  mjolnirBlessing: {fileID: 6336613396205031961, guid: f9e0944cf804e0e49b3003d7b0ecd2ab,
+    type: 3}
+  halfmoonBladeBlessing: {fileID: 7790859615869246462, guid: be857c401dc18c3469f0219bbcc4828f,
+    type: 3}
+  totsukaSwordBlessing: {fileID: 6188903119084996704, guid: 03427b7deacd9604a9e710d73d4853f5,
+    type: 3}
+  muramasaBlessing: {fileID: 8436135234669101179, guid: 579f40639ab34ba4ba7a54219306d8b9,
+    type: 3}
+  ascalonBlessing: {fileID: 163484253347325201, guid: 8d1bf26e44df4c74fa553b5ff7a21851,
+    type: 3}
+  godsBlessingsContainer: {fileID: 563629718}
 --- !u!1 &1179419394
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public enum BlessingType
 public abstract class GodBlessing : MonoBehaviour
 {
     public abstract int Level { get; }
+    public abstract BlessingType Blessing { get; }
 
     protected abstract void AttemptNormalAttack();
     protected abstract void PerformNormalAttack();
