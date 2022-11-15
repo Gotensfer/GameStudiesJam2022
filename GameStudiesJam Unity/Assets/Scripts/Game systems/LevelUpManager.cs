@@ -53,16 +53,29 @@ public class LevelUpManager : MonoBehaviour
             {
                 Destroy(pickOptionsContainer[i].GetChild(0).gameObject);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Debug.LogWarning("No habían elementos de mejora GUI a remover");
             }
         }
     }
 
+    public void DisplayLevelUpOptions()
+    {
+        if (ownedBlessings.Count != 3)
+        {
+            Spawn3RandomLevelUpChoices();
+        }
+        else
+        {
+            Spawn3OwnedLevelUpChoices();
+        }
+    }
+
+#if UNITY_EDITOR
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             if (ownedBlessings.Count != 3)
             {
@@ -74,11 +87,12 @@ public class LevelUpManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             DeleteGUILevelUpElements();
         }
     }
+#endif
 
     void InitializeButtonFunctionality(BlessingType blessing, Button button, GameObject levelUpGUIElement)
     {
