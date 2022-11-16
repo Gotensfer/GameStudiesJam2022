@@ -7,6 +7,7 @@ public class HerculesPellet : MonoBehaviour
     int damage;
     float aoe;
     Rigidbody rb;
+    [SerializeField] GameObject hitVfx;
 
 
     private void Awake()
@@ -31,6 +32,9 @@ public class HerculesPellet : MonoBehaviour
             }
 
             // VFX de la explosión aquí
+
+            var vfxInstance = Instantiate(hitVfx, transform.position,Quaternion.identity);
+            Destroy(vfxInstance, 1f);
 
             // --
 

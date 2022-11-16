@@ -8,7 +8,7 @@ public class PlayerPellet : MonoBehaviour
 {
     public int damage;
     Rigidbody rb;
-
+    [SerializeField] GameObject hitVfx;
 
     private void Awake()
     {
@@ -21,6 +21,8 @@ public class PlayerPellet : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             other.GetComponent<StandarEnemy>().Damage(damage);
+            var vfxInstance = Instantiate(hitVfx, transform.position, Quaternion.identity);
+            Destroy(vfxInstance, 1f);
             Destroy(gameObject);
         }
     }

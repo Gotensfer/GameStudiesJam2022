@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 4aae2b29c13c5bf47ac5f0effdd60b58
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - spawnArea: {instanceID: 0}
+  - dragonHead: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
