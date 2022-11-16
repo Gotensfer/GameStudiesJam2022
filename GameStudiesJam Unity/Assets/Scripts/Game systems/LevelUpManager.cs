@@ -150,7 +150,27 @@ public class LevelUpManager : MonoBehaviour
             {
                 if (ownedBlessing.Level == 5)
                 {
-
+                    switch (blessing)
+                    {
+                        case BlessingType.HerculesGauntlet:
+                            button.onClick.AddListener(AltarHercules);
+                            break;
+                        case BlessingType.Mjolnir:
+                            button.onClick.AddListener(AltarMjolnir);
+                            break;
+                        case BlessingType.HalfmoonBlade:
+                            button.onClick.AddListener(AltarHalfmooon);
+                            break;
+                        case BlessingType.TotsukaSword:
+                            button.onClick.AddListener(AltarTotsuka);
+                            break;
+                        case BlessingType.Muramasa:
+                            button.onClick.AddListener(AltarMuramasa);
+                            break;
+                        case BlessingType.Ascalon:
+                            button.onClick.AddListener(AltarAscalon);
+                            break;
+                    }
                 }
             }
             
@@ -213,7 +233,56 @@ public class LevelUpManager : MonoBehaviour
         ownedLevelUpGUIElements.Add(levelUpGUIElements[5]);
     }
     #endregion
+
     #region"Métodos pa conseguir altares"
+
+    [SerializeField] GameObject altarHercules, altarMjolnir, altarHalfmoon, altarTotsuka, altarMuramasa, altarAscalon;
+
+    void AltarHercules()
+    {
+        SpawnAltar(altarHercules);
+    }
+
+    void AltarMjolnir()
+    {
+        SpawnAltar(altarMjolnir);
+    }
+
+    void AltarHalfmooon()
+    {
+        SpawnAltar(altarHalfmoon);
+    }
+
+    void AltarTotsuka()
+    {
+        SpawnAltar(altarTotsuka);
+    }
+
+    void AltarMuramasa()
+    {
+        SpawnAltar(altarMuramasa);
+    }
+
+    void AltarAscalon()
+    {
+        SpawnAltar(altarAscalon);
+    }
+
+    [SerializeField] Transform northWest;
+    [SerializeField] Transform northEast;
+    [SerializeField] Transform southWest;
+    [SerializeField] Transform southEast;
+
+    Vector3 ReturnRandomPos()
+    {
+        Vector3 spawnPosition = new Vector3(UnityEngine.Random.Range(southWest.position.x, northEast.position.x), 1, UnityEngine.Random.Range(northWest.position.z, southEast.position.z));
+        return spawnPosition;
+    }
+    
+    void SpawnAltar(GameObject altar)
+    {
+        Instantiate(altar, ReturnRandomPos(), Quaternion.identity);
+    }
 
     #endregion
 }
