@@ -128,3 +128,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  hitVfx: {fileID: 4279546268201816905, guid: 15477144a90ce604e814f8a6b45a70e4, type: 3}

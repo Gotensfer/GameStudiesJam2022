@@ -16,15 +16,10 @@ public class ProjectileMovement : MonoBehaviour
 
     private void Update()
     {
-        if (speed != 0)
-        {
-            transform.position += transform.forward * (speed * Time.deltaTime);
-        }
     }
 
     private void OnCollisionEnter(Collision co)
     {
-        speed = 0;
 
         ContactPoint contact=co.contacts[0];
         Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);

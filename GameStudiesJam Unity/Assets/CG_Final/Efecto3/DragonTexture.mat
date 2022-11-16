@@ -21,13 +21,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: DragonTexture
-  m_Shader: {fileID: -6465566751694194690, guid: e7e0a72913507b04ea3617eef6f7781c, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: e7e0a72913507b04ea3617eef6f7781c,
+    type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2003
+  m_CustomRenderQueue: 3003
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
