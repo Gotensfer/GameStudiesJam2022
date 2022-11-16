@@ -7,6 +7,7 @@ public class HalfmoonPellet : MonoBehaviour
     public int damage;
     public float speedMult;
     Rigidbody rb;
+    [SerializeField] GameObject vfxObject;
 
 
     private void Awake()
@@ -14,13 +15,13 @@ public class HalfmoonPellet : MonoBehaviour
         Destroy(gameObject, 10f);
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy"))
         {
             other.GetComponent<StandarEnemy>().Damage(damage);
             other.GetComponent<StandarEnemy>().enemySpeed *= speedMult;
+            Destroy(Instantiate(vfxObject, transform.position, Quaternion.identity), 5f);
             Destroy(gameObject);
         }
     }
