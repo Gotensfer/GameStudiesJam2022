@@ -21,7 +21,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: DragonTrail
-  m_Shader: {fileID: -6465566751694194690, guid: 8da035dee79068649b1433547a2485c8, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 8da035dee79068649b1433547a2485c8,
+    type: 3}
   m_ValidKeywords:
   - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
@@ -75,8 +76,8 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _BorderColor: {r: 0.29938602, g: 0, b: 1, a: 1}
-    - _Color2: {r: 0.29938602, g: 0, b: 1, a: 1}
-    - _Color_1: {r: 0.29938602, g: 0, b: 1, a: 1}
+    - _BorderColor: {r: 1, g: 0.40695804, b: 0, a: 1}
+    - _Color2: {r: 1, g: 0.61947197, b: 0, a: 1}
+    - _Color_1: {r: 1, g: 0.89391875, b: 0.5424528, a: 1}
     - _Speed_1: {r: -2, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
