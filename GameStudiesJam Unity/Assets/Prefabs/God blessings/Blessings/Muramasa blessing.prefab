@@ -55,5 +55,6 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
+  hitVfx: {fileID: 8469953503543682371, guid: 4df89941b0288dc4ea8bfcfb55dfbb73, type: 3}
   CDForUlti: 60
   CDulti: 0

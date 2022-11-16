@@ -57,3 +57,4 @@ MonoBehaviour:
     m_Bits: 64
   CDForUlti: 30
   CDulti: 0
+  hitVfx: {fileID: 4359419433911459085, guid: e9efbff945243e14297d203a23c505b4, type: 3}

@@ -120,6 +120,8 @@ public class HerculesGauntlets : GodBlessing
     [SerializeField] float CDForUlti;
     [SerializeField] float CDulti;
 
+    [SerializeField] GameObject hitVfx;
+
     protected override void PerformUltimateAttack()
     {
         if (level >= 6 && CDulti <= 0)
@@ -139,6 +141,9 @@ public class HerculesGauntlets : GodBlessing
 
             herculesUltiSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/HerculesUlti");
             herculesUltiSFX.start();
+
+            var vfxInstance = Instantiate(hitVfx, transform.position, Quaternion.identity);
+            Destroy(vfxInstance, 10f);
         }        
     }
 

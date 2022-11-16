@@ -81,6 +81,8 @@ public class Muramasa : GodBlessing
 
     [SerializeField] LayerMask enemyLayer;
 
+    [SerializeField] GameObject hitVfx;
+
     protected override void PerformNormalAttack()
     {
         CD = attackCD;
@@ -93,6 +95,9 @@ public class Muramasa : GodBlessing
         }
         muramasaBasicSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/MuramasaBasic");
         muramasaBasicSFX.start();
+
+        var vfxInstance = Instantiate(hitVfx, transform.position, Quaternion.identity);
+        Destroy(vfxInstance, 5f);
     }
 
     PlayerController playerController;
