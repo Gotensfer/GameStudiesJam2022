@@ -58,18 +58,25 @@ public class Muramasa : GodBlessing
     protected override void PerformNormalAttack()
     {
         CD = attackCD;
-
+        FMOD.Studio.EventInstance muramasaBasicSFX; //Dejelo aquí arriba por si algo
         possibleTargets = Physics.OverlapSphere(transform.position, aoe, enemyLayer);
 
         for (int i = 0; i < possibleTargets.Length; i++)
         {
             possibleTargets[i].GetComponent<StandarEnemy>().Damage(damage);
         }
+        muramasaBasicSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/MuramasaBasic");
+        muramasaBasicSFX.start();
     }
 
     protected override void PerformUltimateAttack()
     {
-        throw new System.NotImplementedException();
+        FMOD.Studio.EventInstance muramasaUltiSFX; //Dejelo aquí arriba por si algo
+        
+        //Tu codigo destructivo aquí B)
+        
+        muramasaUltiSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/MuramasaUlti");
+        muramasaUltiSFX.start();
     }
 
     void ScaleBlessingWithLevel()

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{9fc596c4-35d4-4fed-8ab3-d955966a392b}">
+		<property name="assetPath">
+			<value>Rage (Muramaza)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a2035c5f-5fdd-430f-92dc-af1ebf8dac4f}</destination>
+		</relationship>
+	</object>
+</objects>

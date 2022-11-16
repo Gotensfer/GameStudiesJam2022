@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{dc1c041c-7fbf-46a5-a4a4-e81c66895d28}">
+		<property name="assetPath">
+			<value>Congelar (Media Luna)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a2035c5f-5fdd-430f-92dc-af1ebf8dac4f}</destination>
+		</relationship>
+	</object>
+</objects>

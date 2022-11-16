@@ -57,7 +57,7 @@ public class TotsukaSword : GodBlessing
     protected override void PerformNormalAttack()
     {
         CD = attackCD;
-
+        FMOD.Studio.EventInstance totsukaBasicSFX; //Dejelo aquí arriba por si algo
         possibleTargets = Physics.OverlapSphere(transform.position, attackDetectionRange);
 
         int len = possibleTargets.Length;
@@ -85,11 +85,19 @@ public class TotsukaSword : GodBlessing
         pellet_instance.GetComponent<TotsukaPellet>().InitializePellet(attackDirection, proyectileVelocity, damage);
 
         targetEnemy = null;
+        
+        totsukaBasicSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/TotsukaBasic");
+        totsukaBasicSFX.start();
     }
 
     protected override void PerformUltimateAttack()
     {
-        throw new System.NotImplementedException();
+        FMOD.Studio.EventInstance totsukaUltiSFX; //Dejelo aquí arriba por si algo
+        
+        //Tu codigo destructivo aquí B)
+        
+        totsukaUltiSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/TotsukaUlti");
+        totsukaUltiSFX.start();
     }
 
     void ScaleBlessingWithLevel()

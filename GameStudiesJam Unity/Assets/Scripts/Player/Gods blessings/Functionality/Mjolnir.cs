@@ -62,7 +62,7 @@ public class Mjolnir : GodBlessing
     protected override void PerformNormalAttack()
     {
         CD = attackCD;
-
+        FMOD.Studio.EventInstance mjolnirBasicSFX; //Dejelo aquí arriba por si algo
         possibleTargets = Physics.OverlapSphere(transform.position, attackDetectionRange, enemyLayer);
 
         try
@@ -83,11 +83,19 @@ public class Mjolnir : GodBlessing
         pellet_instance.GetComponent<MjolnirPellet>().InitializePellet(damage, aoe);
 
         targetEnemy = null;
+        
+        mjolnirBasicSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/MjolnirBase");
+        mjolnirBasicSFX.start();
     }
 
     protected override void PerformUltimateAttack()
     {
-        throw new System.NotImplementedException();
+        FMOD.Studio.EventInstance mjolnirUltiSFX; //Dejelo aquí arriba por si algo
+        
+        //Tu codigo destructivo aquí B)
+        
+        mjolnirUltiSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/MjolnirUlti");
+        mjolnirUltiSFX.start();
     }
 
     void ScaleBlessingWithLevel()

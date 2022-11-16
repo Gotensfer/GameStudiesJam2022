@@ -46,7 +46,7 @@ public class DavidSlingshot : MonoBehaviour
     void PerformBasicAttack()
     {
         CD = attackCD;
-
+        FMOD.Studio.EventInstance BasicSFX; //Dejelo aquí arriba por si algo
         possibleTargets = Physics.OverlapSphere(transform.position, attackDetectionRange);
 
         int len = possibleTargets.Length;
@@ -73,6 +73,9 @@ public class DavidSlingshot : MonoBehaviour
         pellet_instance = Instantiate(pellet, transform.position, Quaternion.identity);
         pellet_instance.GetComponent<PlayerPellet>().InitializePellet(attackDirection, proyectileVelocity, baseDamage);
 
-        targetEnemy = null;       
+        targetEnemy = null;  
+        
+        BasicSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/Basic");
+        BasicSFX.start();
     }
 }

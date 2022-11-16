@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{4896a450-c024-426e-a941-f1c101481452}">
+		<property name="assetPath">
+			<value>Rayo definitivo (Thor)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a2035c5f-5fdd-430f-92dc-af1ebf8dac4f}</destination>
+		</relationship>
+	</object>
+</objects>
