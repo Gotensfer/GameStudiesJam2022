@@ -7,33 +7,32 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FireTrail
-  m_Shader: {fileID: -6465566751694194690, guid: 8da035dee79068649b1433547a2485c8,
+  m_Name: Stone 5
+  m_Shader: {fileID: -6465566751694194690, guid: 953f0fc6bec435a4f9b71636b9200fa6,
     type: 3}
   m_ValidKeywords:
-  - _SURFACE_TYPE_TRANSPARENT
+  - _SPECULAR_SETUP
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap:
-    RenderType: Transparent
-  disabledShaderPasses:
-  - DepthOnly
+    RenderType: Opaque
+  disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _BorderTexure:
-        m_Texture: {fileID: 2800000, guid: cdaeb7e7d5e928a4482af9d41084065f, type: 3}
+    - _Rock_Ligth:
+        m_Texture: {fileID: 2800000, guid: 9d829778a4465ee4191622ec0ae9d607, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _NoiseTexture:
-        m_Texture: {fileID: 2800000, guid: a4ca124d972e0814e8a3f9dfb0e54a73, type: 3}
+    - _Rock_Texture:
+        m_Texture: {fileID: 2800000, guid: 23d4a7a0290891c4c8ea6a96a0456e08, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _mainTexture:
-        m_Texture: {fileID: 2800000, guid: be1b1f5f00e537c4bb883f6eb7b19f01, type: 3}
+    - _Rocks:
+        m_Texture: {fileID: 2800000, guid: 9bb3adc098ae86d46a6af4b701b3ea8c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -51,24 +50,26 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
-    - _Blend: 2
+    - _Blend: 0
     - _CastShadows: 1
     - _Cull: 2
-    - _DstBlend: 1
+    - _DstBlend: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _SrcBlend: 5
-    - _Surface: 1
+    - _ReceiveShadows: 1
+    - _RotationSpeed: 0.2
+    - _SrcBlend: 1
+    - _Surface: 0
+    - _WorkflowMode: 0
     - _ZTest: 4
-    - _ZWrite: 0
+    - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _BorderColor: {r: 3.5648696, g: 0.6486803, b: 0, a: 1}
-    - _Color2: {r: 1, g: 0.58280706, b: 0, a: 1}
-    - _Color_1: {r: 0.9529412, g: 0.37456262, b: 0, a: 1}
-    - _Speed_1: {r: -2, g: 0, b: 0, a: 0}
+    - _LigthColor: {r: 1, g: 0.7008203, b: 0, a: 1}
+    - _RockColor: {r: 1, g: 0.8378445, b: 0, a: 0}
+    - _TextureColor: {r: 1, g: 0.7812411, b: 0, a: 0.8823529}
   m_BuildTextureStacks: []
---- !u!114 &5375011739159784341
+--- !u!114 &4798561263360802450
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

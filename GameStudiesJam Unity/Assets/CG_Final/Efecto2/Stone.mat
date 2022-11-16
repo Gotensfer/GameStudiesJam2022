@@ -8,7 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Stone
-  m_Shader: {fileID: -6465566751694194690, guid: 953f0fc6bec435a4f9b71636b9200fa6, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 953f0fc6bec435a4f9b71636b9200fa6,
+    type: 3}
   m_ValidKeywords:
   - _SPECULAR_SETUP
   m_InvalidKeywords: []
@@ -65,8 +66,8 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - _LigthColor: {r: 1, g: 0.3, b: 0, a: 1}
-    - _RockColor: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 0}
-    - _TextureColor: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 0.8823529}
+    - _RockColor: {r: 0.5566038, g: 0.29671818, b: 0.112896055, a: 0}
+    - _TextureColor: {r: 1, g: 0.6617811, b: 0.0047169924, a: 0.8823529}
   m_BuildTextureStacks: []
 --- !u!114 &4798561263360802450
 MonoBehaviour:
