@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerVitals : MonoBehaviour
 {
@@ -29,6 +30,11 @@ public class PlayerVitals : MonoBehaviour
     {
         int receivedDamage = amount;
         health = Mathf.Clamp(health - receivedDamage, 0, maxHealth);
+
+        if (health <= 0)
+        {
+            Death();
+        }
     }
 
     public void Heal(int amount)
@@ -41,5 +47,15 @@ public class PlayerVitals : MonoBehaviour
     {
         int receivedMaxHealth = amount;
         maxHealth += receivedMaxHealth;
+    }
+
+    void Death()
+    {
+        Invoke(nameof(ReloadScene), 2f);
+    }
+
+    void ReloadScene()
+    {
+        SceneManager.LoadScene(1);
     }
 }

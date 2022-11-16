@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1583604974597273581, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
+        type: 3}
+      propertyPath: m_text
+      value: 'Palabra: Muramasa'
+      objectReference: {fileID: 0}
     - target: {fileID: 6228196327397995756, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
         type: 3}
       propertyPath: m_Sprite

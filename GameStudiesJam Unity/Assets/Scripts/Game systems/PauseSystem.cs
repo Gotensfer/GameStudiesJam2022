@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseSystem : MonoBehaviour
 {
@@ -44,5 +45,10 @@ public class PauseSystem : MonoBehaviour
         paused = false;
 
         levelUpManager.DeleteGUILevelUpElements();
+    }
+
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
