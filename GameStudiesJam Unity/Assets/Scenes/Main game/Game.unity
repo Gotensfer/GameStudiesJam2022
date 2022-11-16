@@ -1911,7 +1911,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 6998646986295314367, guid: 12391e1cf43b8544e9792f251cd4771c, type: 3}
   timeSpawn: 0.5
-  repeatSpawnRate: 1.5
+  repeatSpawnRate: 0.5
   northWest: {fileID: 169356195}
   northEast: {fileID: 291881116}
   southWest: {fileID: 523869992}

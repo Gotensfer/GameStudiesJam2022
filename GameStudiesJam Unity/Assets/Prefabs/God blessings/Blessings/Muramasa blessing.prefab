@@ -44,3 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc355e4cd27fe141b08ca9cd5f92b74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pellet: {fileID: 0}
+  attackCD: 0
+  damage: 0
+  aoe: 0
+  proyectileVelocity: 0
+  attackDetectionRange: 10
+  CD: 0
+  config: {fileID: 11400000, guid: 6c6b126bc5a0537468742dbc74a34e9c, type: 2}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
