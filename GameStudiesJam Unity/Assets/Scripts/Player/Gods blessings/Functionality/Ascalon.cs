@@ -57,7 +57,7 @@ public class Ascalon : GodBlessing
     protected override void PerformNormalAttack()
     {
         CD = attackCD;
-
+        FMOD.Studio.EventInstance ascalonBasicSFX;
         possibleTargets = Physics.OverlapSphere(transform.position, attackDetectionRange);
 
         int len = possibleTargets.Length;
@@ -84,11 +84,19 @@ public class Ascalon : GodBlessing
         pellet_instance.GetComponent<AscalonPellet>().InitializePellet(attackDirection, proyectileVelocity, damage);
 
         targetEnemy = null;
+        
+        ascalonBasicSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/AscalonBasic");
+        ascalonBasicSFX.start();
     }
 
     protected override void PerformUltimateAttack()
     {
-        throw new System.NotImplementedException();
+        FMOD.Studio.EventInstance ascalonUltiSFX; //Dejelo aquí arriba por si algo
+        
+        //Tu codigo destructivo aquí B)
+        
+        ascalonUltiSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/AscalonUlti");
+        ascalonUltiSFX.start();
     }
 
     void ScaleBlessingWithLevel()

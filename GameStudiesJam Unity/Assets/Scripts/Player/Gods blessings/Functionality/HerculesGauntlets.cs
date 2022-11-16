@@ -59,6 +59,7 @@ public class HerculesGauntlets : GodBlessing
     protected override void PerformNormalAttack()
     {
         CD = attackCD;
+        FMOD.Studio.EventInstance herculesNormalSFX;
 
         possibleTargets = Physics.OverlapSphere(transform.position, attackDetectionRange);
 
@@ -87,11 +88,19 @@ public class HerculesGauntlets : GodBlessing
         pellet_instance.GetComponent<HerculesPellet>().InitializePellet(attackDirection, proyectileVelocity, damage, aoe);
 
         targetEnemy = null;
+        
+        herculesNormalSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/HerculesBasic");
+        herculesNormalSFX.start();
     }
 
     protected override void PerformUltimateAttack()
     {
-        throw new System.NotImplementedException();
+        FMOD.Studio.EventInstance herculesUltiSFX; //Dejelo aquí arriba por si algo
+        
+        //Tu codigo destructivo aquí B)
+        
+        herculesUltiSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/HerculesUlti");
+        herculesUltiSFX.start();
     }
 
     void ScaleBlessingWithLevel()

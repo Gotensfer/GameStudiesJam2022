@@ -61,7 +61,8 @@ public class HalfmoonBlade : GodBlessing
     protected override void PerformNormalAttack()
     {
         CD = attackCD;
-
+        FMOD.Studio.EventInstance halfMoonBasicSFX;
+        
         possibleTargets = Physics.OverlapSphere(transform.position, attackDetectionRange);
 
         int len = possibleTargets.Length;
@@ -89,11 +90,19 @@ public class HalfmoonBlade : GodBlessing
         pellet_instance.GetComponent<HalfmoonPellet>().InitializePellet(attackDirection, proyectileVelocity, damage, speedMult);
 
         targetEnemy = null;
+        
+        halfMoonBasicSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/MedialunaBasic");
+        halfMoonBasicSFX.start();
     }
 
     protected override void PerformUltimateAttack()
     {
-        throw new System.NotImplementedException();
+        FMOD.Studio.EventInstance halfMoonUltiSFX; //Dejelo aquí arriba por si algo
+        
+        //Tu codigo destructivo aquí B)
+        
+        halfMoonUltiSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/MedialunaUlti");
+        halfMoonUltiSFX.start();
     }
 
     void ScaleBlessingWithLevel()
