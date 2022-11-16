@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] Transform player;
     [SerializeField] Transform enemyContainer;
+    [SerializeField] Transform parentForDrops;
 
     void Start()
     {
@@ -44,5 +45,6 @@ public class EnemySpawner : MonoBehaviour
 
         GameObject enemy1 = Instantiate(enemies[0],spawnPosition,gameObject.transform.rotation, enemyContainer);
         enemy1.GetComponent<StandarEnemy>().SetTarget(player);
+        enemy1.GetComponent<StandarEnemy>().SetDropHierarchyParent(parentForDrops);
     }
 }

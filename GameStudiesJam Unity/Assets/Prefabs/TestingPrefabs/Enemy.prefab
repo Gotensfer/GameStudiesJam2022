@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 6998646986295314242}
   - component: {fileID: 6998646986295314241}
   - component: {fileID: 6998646986295314240}
-  m_Layer: 0
+  - component: {fileID: 3537489943206173639}
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -64,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0782516a5a1c9f743a0eb030c8d42f19, type: 2}
+  - {fileID: 2100000, guid: 8d844100361338c498cc86334396d68f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -111,10 +112,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89197883787b2e34c808126218deaca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroPosition: {fileID: 0}
   enemyLife: 10
   enemySpeed: 3
   enemyDamage: 2
+  enemyDieEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  parentForDrops: {fileID: 0}
 --- !u!54 &6998646986295314240
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -131,3 +135,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3537489943206173639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6998646986295314367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7f896862b95b54eadfd802370592cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blood: {fileID: 6945202203600407669, guid: f342427f7e84e2046bc2aa5e952aea4d, type: 3}
+  cloggedBlood: {fileID: 5164488102966812224, guid: 9cde9a6acbc518341ac81b4bb24a98fc,
+    type: 3}
+  crystallizedBlood: {fileID: 8274888953279458657, guid: 184400998b43d544abfe3759c3832054,
+    type: 3}
+  pandoraBox: {fileID: 5313499614645385057, guid: 8fe912600e76a7845a999baa924a8ff2,
+    type: 3}
+  wine: {fileID: 8693630388421803004, guid: e4481cef9cbb9604a88640be1a447642, type: 3}
+  bloodChance: 50
+  cloggedBloodChance: 20
+  crystallizedBloodChance: 10
+  pandoraBoxChance: 1
+  wineChance: 5

@@ -13,10 +13,11 @@ public class LevelUpManager : MonoBehaviour
 
     [SerializeField] RectTransform[] pickOptionsContainer;
 
-    System.Random rnd = new System.Random();
+    
 
     IEnumerable<GameObject> Pick3Random()
     {
+        System.Random rnd = new System.Random();
         return levelUpGUIElements.OrderBy(x => rnd.Next()).Take(3);
     }
 
@@ -47,22 +48,39 @@ public class LevelUpManager : MonoBehaviour
 
     void DeleteGUILevelUpElements()
     {
+        Time.timeScale = 1;
+
         for (int i = 0; i < pickOptionsContainer.Length; i++)
         {
             try
             {
                 Destroy(pickOptionsContainer[i].GetChild(0).gameObject);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Debug.LogWarning("No habían elementos de mejora GUI a remover");
             }
         }
     }
 
+    public void DisplayLevelUpOptions()
+    {
+        Time.timeScale = 0;
+
+        if (ownedBlessings.Count != 3)
+        {
+            Spawn3RandomLevelUpChoices();
+        }
+        else
+        {
+            Spawn3OwnedLevelUpChoices();
+        }
+    }
+
+#if UNITY_EDITOR
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             if (ownedBlessings.Count != 3)
             {
@@ -74,11 +92,12 @@ public class LevelUpManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             DeleteGUILevelUpElements();
         }
     }
+#endif
 
     void InitializeButtonFunctionality(BlessingType blessing, Button button, GameObject levelUpGUIElement)
     {
@@ -129,7 +148,10 @@ public class LevelUpManager : MonoBehaviour
             }
             else
             {
-                // To do: Cositas extra que deben pasar cuando ya se tiene el nivel máximo mejorable
+                if (ownedBlessing.Level == 5)
+                {
+
+                }
             }
             
             levelUpGUIElement.GetComponent<LevelUpGUIContainer>().SetLevel(ownedBlessing.Level);
@@ -190,5 +212,8 @@ public class LevelUpManager : MonoBehaviour
         blessing.LevelUp();
         ownedLevelUpGUIElements.Add(levelUpGUIElements[5]);
     }
+    #endregion
+    #region"Métodos pa conseguir altares"
+
     #endregion
 }

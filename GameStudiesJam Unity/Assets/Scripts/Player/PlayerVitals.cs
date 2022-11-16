@@ -10,6 +10,8 @@ public class PlayerVitals : MonoBehaviour
     public int health { get; private set; }
     public int damage { get; private set; }
 
+    public ExperienceSystem experienceSystem;
+
     private void Start()
     {
         if (playerConfig == null)
