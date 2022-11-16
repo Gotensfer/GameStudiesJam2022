@@ -23,7 +23,7 @@ public class LevelUpGUIContainer : MonoBehaviour
         else
         {
             // Poner todo en rojito porque es ultimate 8)
-            for (int i = 0; i < level; i++) 
+            for (int i = 0; i < 5; i++) 
             {
                 levelIndicators[i].color = Color.red;
             }
