@@ -21,7 +21,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FireSlashWave
-  m_Shader: {fileID: -6465566751694194690, guid: 0718a86816c00ab47b8b6593e886bbd8, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 0718a86816c00ab47b8b6593e886bbd8,
+    type: 3}
   m_ValidKeywords:
   - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
@@ -76,8 +77,8 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _BorderColor: {r: 0, g: 1, b: 0.38363647, a: 1}
-    - _Color2: {r: 0.19999999, g: 1, b: 0.5069092, a: 1}
-    - _Color_1: {r: 0.19999999, g: 1, b: 0.5069092, a: 1}
+    - _BorderColor: {r: 2, g: 0, b: 0.21960784, a: 1}
+    - _Color2: {r: 1, g: 0, b: 0.047945976, a: 1}
+    - _Color_1: {r: 0.7075472, g: 0.058290116, b: 0, a: 1}
     - _Speed_1: {r: -0.2, g: 0.2, b: 0, a: 0}
   m_BuildTextureStacks: []
