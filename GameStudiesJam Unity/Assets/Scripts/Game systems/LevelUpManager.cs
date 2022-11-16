@@ -13,10 +13,11 @@ public class LevelUpManager : MonoBehaviour
 
     [SerializeField] RectTransform[] pickOptionsContainer;
 
-    System.Random rnd = new System.Random();
+    
 
     IEnumerable<GameObject> Pick3Random()
     {
+        System.Random rnd = new System.Random();
         return levelUpGUIElements.OrderBy(x => rnd.Next()).Take(3);
     }
 
