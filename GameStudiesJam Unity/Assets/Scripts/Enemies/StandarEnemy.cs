@@ -8,7 +8,7 @@ public class StandarEnemy : MonoBehaviour
     Transform hero;
     //Ememy attributes 
     [Header("Enemy attributes")]
-    [SerializeField] float enemyLife, enemySpeed, enemyDamage;
+    public float enemyLife, enemySpeed, enemyDamage;
     private Rigidbody rb;
     private Vector3 movement;
     Vector3 heroPosition;

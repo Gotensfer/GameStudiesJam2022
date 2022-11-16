@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class Mjolnir : GodBlessing
 {
@@ -56,15 +57,24 @@ public class Mjolnir : GodBlessing
     Transform targetEnemy;
     Collider[] possibleTargets;
 
+    [SerializeField] LayerMask enemyLayer;
+
     protected override void PerformNormalAttack()
     {
         CD = attackCD;
 
-        possibleTargets = Physics.OverlapSphere(transform.position, attackDetectionRange);
+        possibleTargets = Physics.OverlapSphere(transform.position, attackDetectionRange, enemyLayer);
 
-        System.Random rnd = new System.Random();
-        targetEnemy = possibleTargets.OrderBy(x => rnd.Next()).Take(1).ElementAt(0).transform;
-
+        try
+        {
+            System.Random rnd = new System.Random();
+            targetEnemy = possibleTargets.OrderBy(x => rnd.Next()).Take(1).ElementAt(0).transform;
+        }
+        catch (Exception)
+        {
+            print("|Mjolnir| Sin objetivos en este intento de ataque");
+            targetEnemy = null;
+        }
 
         // Si no hay enemigos, no hacer nada
         if (targetEnemy == null) return;
