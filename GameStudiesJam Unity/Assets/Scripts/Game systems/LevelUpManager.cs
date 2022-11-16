@@ -274,12 +274,13 @@ public class LevelUpManager : MonoBehaviour
     Vector3 ReturnRandomPos()
     {
         Vector3 spawnPosition = new Vector3(UnityEngine.Random.Range(southWest.position.x, northEast.position.x), 1, UnityEngine.Random.Range(northWest.position.z, southEast.position.z));
+        print(spawnPosition);
         return spawnPosition;
     }
     
     void SpawnAltar(GameObject altar)
     {
-        Instantiate(altar, ReturnRandomPos(), Quaternion.identity);
+        Instantiate(altar).transform.position = ReturnRandomPos();
     }
 
     #endregion
