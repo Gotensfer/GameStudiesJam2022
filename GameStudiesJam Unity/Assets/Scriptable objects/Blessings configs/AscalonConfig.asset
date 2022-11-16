@@ -9,23 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88cdf487e1aac7245b10b7a9fc658927, type: 3}
-  m_Name: HerculesConfig
+  m_Script: {fileID: 11500000, guid: f1bfbc7f82f2a9a4fb1dd21e51a73a2f, type: 3}
+  m_Name: AscalonConfig
   m_EditorClassIdentifier: 
-  damagesAtLevel: 00000000010000000200000003000000040000000500000005000000
+  damagesAtLevel: 000000000300000006000000090000000c0000000f0000000f000000
   cdAtLevel:
   - 0
-  - 4
-  - 3.5
-  - 3
-  - 2.5
-  - 2
-  - 2
-  aoeAtLevel:
-  - 0
-  - 3
-  - 3.5
-  - 4
-  - 4.5
+  - 8
+  - 7
+  - 6
   - 5
-  - 5
+  - 4
+  - 4

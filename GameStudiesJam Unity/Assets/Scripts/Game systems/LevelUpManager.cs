@@ -13,10 +13,11 @@ public class LevelUpManager : MonoBehaviour
 
     [SerializeField] RectTransform[] pickOptionsContainer;
 
-    System.Random rnd = new System.Random();
+    
 
     IEnumerable<GameObject> Pick3Random()
     {
+        System.Random rnd = new System.Random();
         return levelUpGUIElements.OrderBy(x => rnd.Next()).Take(3);
     }
 
@@ -147,7 +148,30 @@ public class LevelUpManager : MonoBehaviour
             }
             else
             {
-                // To do: Cositas extra que deben pasar cuando ya se tiene el nivel máximo mejorable
+                if (ownedBlessing.Level == 5)
+                {
+                    switch (blessing)
+                    {
+                        case BlessingType.HerculesGauntlet:
+                            button.onClick.AddListener(AltarHercules);
+                            break;
+                        case BlessingType.Mjolnir:
+                            button.onClick.AddListener(AltarMjolnir);
+                            break;
+                        case BlessingType.HalfmoonBlade:
+                            button.onClick.AddListener(AltarHalfmooon);
+                            break;
+                        case BlessingType.TotsukaSword:
+                            button.onClick.AddListener(AltarTotsuka);
+                            break;
+                        case BlessingType.Muramasa:
+                            button.onClick.AddListener(AltarMuramasa);
+                            break;
+                        case BlessingType.Ascalon:
+                            button.onClick.AddListener(AltarAscalon);
+                            break;
+                    }
+                }
             }
             
             levelUpGUIElement.GetComponent<LevelUpGUIContainer>().SetLevel(ownedBlessing.Level);
@@ -208,5 +232,57 @@ public class LevelUpManager : MonoBehaviour
         blessing.LevelUp();
         ownedLevelUpGUIElements.Add(levelUpGUIElements[5]);
     }
+    #endregion
+
+    #region"Métodos pa conseguir altares"
+
+    [SerializeField] GameObject altarHercules, altarMjolnir, altarHalfmoon, altarTotsuka, altarMuramasa, altarAscalon;
+
+    void AltarHercules()
+    {
+        SpawnAltar(altarHercules);
+    }
+
+    void AltarMjolnir()
+    {
+        SpawnAltar(altarMjolnir);
+    }
+
+    void AltarHalfmooon()
+    {
+        SpawnAltar(altarHalfmoon);
+    }
+
+    void AltarTotsuka()
+    {
+        SpawnAltar(altarTotsuka);
+    }
+
+    void AltarMuramasa()
+    {
+        SpawnAltar(altarMuramasa);
+    }
+
+    void AltarAscalon()
+    {
+        SpawnAltar(altarAscalon);
+    }
+
+    [SerializeField] Transform northWest;
+    [SerializeField] Transform northEast;
+    [SerializeField] Transform southWest;
+    [SerializeField] Transform southEast;
+
+    Vector3 ReturnRandomPos()
+    {
+        Vector3 spawnPosition = new Vector3(UnityEngine.Random.Range(southWest.position.x, northEast.position.x), 1, UnityEngine.Random.Range(northWest.position.z, southEast.position.z));
+        return spawnPosition;
+    }
+    
+    void SpawnAltar(GameObject altar)
+    {
+        Instantiate(altar, ReturnRandomPos(), Quaternion.identity);
+    }
+
     #endregion
 }
