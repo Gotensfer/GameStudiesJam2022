@@ -148,7 +148,10 @@ public class LevelUpManager : MonoBehaviour
             }
             else
             {
-                // To do: Cositas extra que deben pasar cuando ya se tiene el nivel máximo mejorable
+                if (ownedBlessing.Level == 5)
+                {
+
+                }
             }
             
             levelUpGUIElement.GetComponent<LevelUpGUIContainer>().SetLevel(ownedBlessing.Level);
@@ -209,5 +212,8 @@ public class LevelUpManager : MonoBehaviour
         blessing.LevelUp();
         ownedLevelUpGUIElements.Add(levelUpGUIElements[5]);
     }
+    #endregion
+    #region"Métodos pa conseguir altares"
+
     #endregion
 }

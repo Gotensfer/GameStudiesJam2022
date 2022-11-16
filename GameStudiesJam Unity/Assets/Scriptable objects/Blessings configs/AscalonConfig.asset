@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1bfbc7f82f2a9a4fb1dd21e51a73a2f, type: 3}
   m_Name: AscalonConfig
   m_EditorClassIdentifier: 
-  damagesAtLevel: 000000000300000006000000090000000c0000000f000000
+  damagesAtLevel: 000000000300000006000000090000000c0000000f0000000f000000
   cdAtLevel:
   - 0
   - 8
   - 7
   - 6
   - 5
+  - 4
   - 4

@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e231a349c31833a4b9b35d4741541cc2, type: 3}
   m_Name: TotsukaConfig
   m_EditorClassIdentifier: 
-  damagesAtLevel: 000000000100000002000000030000000400000005000000
+  damagesAtLevel: 00000000010000000200000003000000040000000500000005000000
   cdAtLevel:
   - 0
   - 3
   - 2.5
   - 2
   - 1.5
+  - 1
   - 1

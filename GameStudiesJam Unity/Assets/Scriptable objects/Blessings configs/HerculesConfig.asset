@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88cdf487e1aac7245b10b7a9fc658927, type: 3}
   m_Name: HerculesConfig
   m_EditorClassIdentifier: 
-  damagesAtLevel: 000000000100000002000000030000000400000005000000
+  damagesAtLevel: 00000000010000000200000003000000040000000500000005000000
   cdAtLevel:
   - 0
   - 4
@@ -20,10 +20,12 @@ MonoBehaviour:
   - 3
   - 2.5
   - 2
+  - 2
   aoeAtLevel:
   - 0
   - 3
   - 3.5
   - 4
   - 4.5
+  - 5
   - 5
