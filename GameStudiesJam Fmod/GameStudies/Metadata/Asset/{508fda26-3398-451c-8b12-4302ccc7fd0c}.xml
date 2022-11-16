@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{508fda26-3398-451c-8b12-4302ccc7fd0c}">
+		<property name="assetPath">
+			<value>Sparkle Media luna/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a2035c5f-5fdd-430f-92dc-af1ebf8dac4f}</destination>
+		</relationship>
+	</object>
+</objects>

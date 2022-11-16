@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows.Speech;
+using System.Linq;
+using System;
 
 public class Muramasa : GodBlessing
 {
@@ -30,11 +33,30 @@ public class Muramasa : GodBlessing
 
     [SerializeField] MuramasaConfig config;
 
+    private KeywordRecognizer keywordRecognizer;
+
+    public Dictionary<string, Action> wordToAction;
+
     private void Start()
     {
         transform.parent.GetComponent<BlessingsSystem>().blessingTick.AddListener(AttemptNormalAttack);
         CD = attackCD;
+
+        playerController = FindObjectOfType<PlayerController>();
+
+        wordToAction = new Dictionary<string, Action>();
+        wordToAction.Add("Muramasa", PerformUltimateAttack);
+        keywordRecognizer = new KeywordRecognizer(wordToAction.Keys.ToArray());
+        keywordRecognizer.OnPhraseRecognized += WordRecognized;
+        keywordRecognizer.Start();
     }
+
+    private void WordRecognized(PhraseRecognizedEventArgs word)
+    {
+        print(word.text);
+        wordToAction[word.text].Invoke();
+    }
+
     public override void LevelUp()
     {
         level++;
@@ -49,6 +71,10 @@ public class Muramasa : GodBlessing
         {
             PerformNormalAttack();
         }
+        if (CDulti >= 0)
+        {
+            CDulti -= Time.deltaTime;
+        }
     }
 
     Collider[] possibleTargets;
@@ -58,18 +84,36 @@ public class Muramasa : GodBlessing
     protected override void PerformNormalAttack()
     {
         CD = attackCD;
-
+        FMOD.Studio.EventInstance muramasaBasicSFX; //Dejelo aquí arriba por si algo
         possibleTargets = Physics.OverlapSphere(transform.position, aoe, enemyLayer);
 
         for (int i = 0; i < possibleTargets.Length; i++)
         {
             possibleTargets[i].GetComponent<StandarEnemy>().Damage(damage);
         }
+        muramasaBasicSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/MuramasaBasic");
+        muramasaBasicSFX.start();
     }
+
+    PlayerController playerController;
+
+    [SerializeField] float CDForUlti;
+    [SerializeField] float CDulti;
 
     protected override void PerformUltimateAttack()
     {
-        throw new System.NotImplementedException();
+        if (level >= 6 && CDulti <= 0)
+        {
+            FMOD.Studio.EventInstance muramasaUltiSFX; //Dejelo aquí arriba por si algo
+
+            //Tu codigo destructivo aquí B)
+            CDulti = CDForUlti;
+
+            playerController.velocity += 5;
+
+            muramasaUltiSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/MuramasaUlti");
+            muramasaUltiSFX.start();
+        }      
     }
 
     void ScaleBlessingWithLevel()

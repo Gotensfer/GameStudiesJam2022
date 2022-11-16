@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows.Speech;
+using System;
+using System.Linq;
 
 public class Ascalon : GodBlessing
 {
@@ -28,10 +31,26 @@ public class Ascalon : GodBlessing
 
     [SerializeField] AscalonConfig config;
 
-    private void Start()
+    private KeywordRecognizer keywordRecognizer;
+
+    public Dictionary<string, Action> wordToAction;
+
+    private void Awake()
     {
         transform.parent.GetComponent<BlessingsSystem>().blessingTick.AddListener(AttemptNormalAttack);
         CD = attackCD;
+
+        wordToAction = new Dictionary<string, Action>();
+        wordToAction.Add("Dragón", PerformUltimateAttack);
+        keywordRecognizer = new KeywordRecognizer(wordToAction.Keys.ToArray());
+        keywordRecognizer.OnPhraseRecognized += WordRecognized;
+        keywordRecognizer.Start();
+    }
+
+    private void WordRecognized(PhraseRecognizedEventArgs word)
+    {
+        print(word.text);
+        wordToAction[word.text].Invoke();
     }
 
     public override void LevelUp()
@@ -48,6 +67,11 @@ public class Ascalon : GodBlessing
         {
             PerformNormalAttack();
         }
+
+        if (CDulti >= 0)
+        {
+            CDulti -= Time.deltaTime;
+        }
     }
 
     GameObject pellet_instance;
@@ -57,7 +81,7 @@ public class Ascalon : GodBlessing
     protected override void PerformNormalAttack()
     {
         CD = attackCD;
-
+        FMOD.Studio.EventInstance ascalonBasicSFX;
         possibleTargets = Physics.OverlapSphere(transform.position, attackDetectionRange);
 
         int len = possibleTargets.Length;
@@ -84,11 +108,41 @@ public class Ascalon : GodBlessing
         pellet_instance.GetComponent<AscalonPellet>().InitializePellet(attackDirection, proyectileVelocity, damage);
 
         targetEnemy = null;
+        
+        ascalonBasicSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/AscalonBasic");
+        ascalonBasicSFX.start();
     }
+
+    [SerializeField] LayerMask enemyLayer;
+    [SerializeField] float CDForUlti;
+    [SerializeField] float CDulti;
 
     protected override void PerformUltimateAttack()
     {
-        throw new System.NotImplementedException();
+        print("Attempted");
+
+        if (level >= 6 && CDulti <= 0)
+        {
+            FMOD.Studio.EventInstance ascalonUltiSFX; //Dejelo aquí arriba por si algo
+
+            //Tu codigo destructivo aquí B)
+
+            CDulti = CDForUlti;
+
+            possibleTargets = Physics.OverlapSphere(transform.position, 5, enemyLayer);
+
+            for (int i = 0; i < possibleTargets.Length; i++)
+            {
+                possibleTargets[i].GetComponent<StandarEnemy>().Damage(damage);
+            }
+
+            print("Success");
+
+            // no me gusta esto
+
+            ascalonUltiSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/AscalonUlti");
+            ascalonUltiSFX.start();
+        }        
     }
 
     void ScaleBlessingWithLevel()

@@ -13,15 +13,13 @@ public class LevelUpManager : MonoBehaviour
 
     [SerializeField] RectTransform[] pickOptionsContainer;
 
-    
-
     IEnumerable<GameObject> Pick3Random()
     {
         System.Random rnd = new System.Random();
         return levelUpGUIElements.OrderBy(x => rnd.Next()).Take(3);
     }
 
-    void Spawn3RandomLevelUpChoices()
+    public void Spawn3RandomLevelUpChoices()
     {
         IEnumerable<GameObject> picks = Pick3Random();
 
@@ -35,7 +33,7 @@ public class LevelUpManager : MonoBehaviour
         }
     }
 
-    void Spawn3OwnedLevelUpChoices()
+    public void Spawn3OwnedLevelUpChoices()
     {
         for (int i = 0; i < ownedLevelUpGUIElements.Count; i++)
         {
@@ -46,7 +44,7 @@ public class LevelUpManager : MonoBehaviour
         }
     }
 
-    void DeleteGUILevelUpElements()
+    public void DeleteGUILevelUpElements()
     {
         Time.timeScale = 1;
 
@@ -276,12 +274,13 @@ public class LevelUpManager : MonoBehaviour
     Vector3 ReturnRandomPos()
     {
         Vector3 spawnPosition = new Vector3(UnityEngine.Random.Range(southWest.position.x, northEast.position.x), 1, UnityEngine.Random.Range(northWest.position.z, southEast.position.z));
+        print(spawnPosition);
         return spawnPosition;
     }
     
     void SpawnAltar(GameObject altar)
     {
-        Instantiate(altar, ReturnRandomPos(), Quaternion.identity);
+        Instantiate(altar).transform.position = ReturnRandomPos();
     }
 
     #endregion
