@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows.Speech;
+using System.Linq;
+using System;
 
 public class HerculesGauntlets : GodBlessing
 {
@@ -30,10 +33,26 @@ public class HerculesGauntlets : GodBlessing
 
     [SerializeField] HerculesGauntletsConfig config;
 
+    private KeywordRecognizer keywordRecognizer;
+
+    public Dictionary<string, Action> wordToAction;
+
     private void Start()
     {
         transform.parent.GetComponent<BlessingsSystem>().blessingTick.AddListener(AttemptNormalAttack);
         CD = attackCD;
+
+        wordToAction = new Dictionary<string, Action>();
+        wordToAction.Add("Hercules", PerformUltimateAttack);
+        keywordRecognizer = new KeywordRecognizer(wordToAction.Keys.ToArray());
+        keywordRecognizer.OnPhraseRecognized += WordRecognized;
+        keywordRecognizer.Start();
+    }
+
+    private void WordRecognized(PhraseRecognizedEventArgs word)
+    {
+        print(word.text);
+        wordToAction[word.text].Invoke();
     }
 
     public override void LevelUp()
@@ -49,6 +68,10 @@ public class HerculesGauntlets : GodBlessing
         if (CD < 0)
         {
             PerformNormalAttack();
+        }
+        if (CDulti >= 0)
+        {
+            CDulti -= Time.deltaTime;
         }
     }
 
@@ -93,14 +116,30 @@ public class HerculesGauntlets : GodBlessing
         herculesNormalSFX.start();
     }
 
+    [SerializeField] LayerMask enemyLayer;
+    [SerializeField] float CDForUlti;
+    [SerializeField] float CDulti;
+
     protected override void PerformUltimateAttack()
     {
-        FMOD.Studio.EventInstance herculesUltiSFX; //Dejelo aquí arriba por si algo
-        
-        //Tu codigo destructivo aquí B)
-        
-        herculesUltiSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/HerculesUlti");
-        herculesUltiSFX.start();
+        if (level >= 6 && CDulti <= 0)
+        {
+            FMOD.Studio.EventInstance herculesUltiSFX; //Dejelo aquí arriba por si algo
+
+            //Tu codigo destructivo aquí B)
+            CDulti = CDForUlti;
+
+            possibleTargets = Physics.OverlapSphere(transform.position, 10, enemyLayer);
+
+            for (int i = 0; i < possibleTargets.Length; i++)
+            {
+                possibleTargets[i].GetComponent<StandarEnemy>().Damage(damage);
+
+            }
+
+            herculesUltiSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/HerculesUlti");
+            herculesUltiSFX.start();
+        }        
     }
 
     void ScaleBlessingWithLevel()

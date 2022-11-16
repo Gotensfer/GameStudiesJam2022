@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows.Speech;
+using System.Linq;
+using System;
 
 public class TotsukaSword : GodBlessing
 {
@@ -28,10 +31,26 @@ public class TotsukaSword : GodBlessing
 
     [SerializeField] TotsukaConfig config;
 
+    private KeywordRecognizer keywordRecognizer;
+
+    public Dictionary<string, Action> wordToAction;
+
     private void Start()
     {
         transform.parent.GetComponent<BlessingsSystem>().blessingTick.AddListener(AttemptNormalAttack);
         CD = attackCD;
+
+        wordToAction = new Dictionary<string, Action>();
+        wordToAction.Add("Amaterasu", PerformUltimateAttack);
+        keywordRecognizer = new KeywordRecognizer(wordToAction.Keys.ToArray());
+        keywordRecognizer.OnPhraseRecognized += WordRecognized;
+        keywordRecognizer.Start();
+    }
+
+    private void WordRecognized(PhraseRecognizedEventArgs word)
+    {
+        print(word.text);
+        wordToAction[word.text].Invoke();
     }
 
     public override void LevelUp()
@@ -47,6 +66,10 @@ public class TotsukaSword : GodBlessing
         if (CD < 0)
         {
             PerformNormalAttack();
+        }
+        if (CDulti >= 0)
+        {
+            CDulti -= Time.deltaTime;
         }
     }
 
@@ -90,14 +113,30 @@ public class TotsukaSword : GodBlessing
         totsukaBasicSFX.start();
     }
 
+    [SerializeField] LayerMask enemyLayer;
+    [SerializeField] float CDForUlti;
+    [SerializeField] float CDulti;
+
     protected override void PerformUltimateAttack()
     {
-        FMOD.Studio.EventInstance totsukaUltiSFX; //Dejelo aquí arriba por si algo
-        
-        //Tu codigo destructivo aquí B)
-        
-        totsukaUltiSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/TotsukaUlti");
-        totsukaUltiSFX.start();
+        if (level >= 6 && CDulti <= 0)
+        {
+            FMOD.Studio.EventInstance totsukaUltiSFX; //Dejelo aquí arriba por si algo
+
+            //Tu codigo destructivo aquí B)
+            CDulti = CDForUlti;
+
+            possibleTargets = Physics.OverlapSphere(transform.position, 10, enemyLayer);
+
+            for (int i = 0; i < possibleTargets.Length; i++)
+            {
+                possibleTargets[i].GetComponent<StandarEnemy>().Damage(damage*2);
+                possibleTargets[i].GetComponent<MeshRenderer>().material.color = Color.magenta;
+            }
+
+            totsukaUltiSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/TotsukaUlti");
+            totsukaUltiSFX.start();
+        }
     }
 
     void ScaleBlessingWithLevel()

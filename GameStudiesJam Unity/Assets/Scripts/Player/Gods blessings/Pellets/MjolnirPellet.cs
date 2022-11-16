@@ -45,4 +45,22 @@ public class MjolnirPellet : MonoBehaviour
         this.damage = damage;
         this.aoe = aoe;
     }
+
+    public void Detonate()
+    {
+        Collider[] targets = Physics.OverlapSphere(transform.position, aoe / 2f);
+
+        Destroy(Instantiate(vfxObject, transform.position, Quaternion.identity), 5f);
+
+        int len = targets.Length;
+        for (int i = 0; i < len; i++)
+        {
+            if (targets[i].CompareTag("Enemy"))
+            {
+                targets[i].GetComponent<StandarEnemy>().Damage(damage);
+            }
+        }
+
+        Destroy(gameObject);
+    }
 }

@@ -14,8 +14,8 @@ public class Voice : MonoBehaviour
     void Start()
     {
         wordToAction = new Dictionary<string, Action>();
-        wordToAction.Add("Hercules", Azul);
-        wordToAction.Add("Thor", Morado);
+        wordToAction.Add("Incorrecto", Azul);
+        //wordToAction.Add("Thor", Morado);
 
         StartCoroutine(initlaaate());
     }

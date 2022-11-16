@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows.Speech;
 using System.Linq;
 using System;
 
@@ -32,11 +33,28 @@ public class Mjolnir : GodBlessing
 
     [SerializeField] MjolnirConfig config;
 
+    private KeywordRecognizer keywordRecognizer;
+
+    public Dictionary<string, Action> wordToAction;
+
     private void Start()
     {
         transform.parent.GetComponent<BlessingsSystem>().blessingTick.AddListener(AttemptNormalAttack);
         CD = attackCD;
+
+        wordToAction = new Dictionary<string, Action>();
+        wordToAction.Add("Thor", PerformUltimateAttack);
+        keywordRecognizer = new KeywordRecognizer(wordToAction.Keys.ToArray());
+        keywordRecognizer.OnPhraseRecognized += WordRecognized;
+        keywordRecognizer.Start();
     }
+
+    private void WordRecognized(PhraseRecognizedEventArgs word)
+    {
+        print(word.text);
+        wordToAction[word.text].Invoke();
+    }
+
     public override void LevelUp()
     {
         level++;
@@ -50,6 +68,10 @@ public class Mjolnir : GodBlessing
         if (CD < 0)
         {
             PerformNormalAttack();
+        }
+        if (CDulti >= 0)
+        {
+            CDulti -= Time.deltaTime;
         }
     }
 
@@ -88,14 +110,25 @@ public class Mjolnir : GodBlessing
         mjolnirBasicSFX.start();
     }
 
+    [SerializeField] float CDForUlti;
+    [SerializeField] float CDulti;
+
     protected override void PerformUltimateAttack()
     {
-        FMOD.Studio.EventInstance mjolnirUltiSFX; //Dejelo aquí arriba por si algo
-        
-        //Tu codigo destructivo aquí B)
-        
-        mjolnirUltiSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/MjolnirUlti");
-        mjolnirUltiSFX.start();
+        if (level >= 6 && CDulti <= 0)
+        {
+            FMOD.Studio.EventInstance mjolnirUltiSFX; //Dejelo aquí arriba por si algo
+
+            //Tu codigo destructivo aquí B)
+            CDulti = CDForUlti;
+
+            pellet_instance = Instantiate(pellet, transform.position, Quaternion.identity);
+            pellet_instance.GetComponent<MjolnirPellet>().InitializePellet(damage, aoe);
+            pellet_instance.GetComponent<MjolnirPellet>().Detonate();
+
+            mjolnirUltiSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/MjolnirUlti");
+            mjolnirUltiSFX.start();
+        }      
     }
 
     void ScaleBlessingWithLevel()

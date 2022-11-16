@@ -51,3 +51,8 @@ MonoBehaviour:
   attackDetectionRange: 15
   CD: 0
   config: {fileID: 11400000, guid: 05bdc0badc642ac4f8d004d3c4f97abb, type: 2}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  CDForUlti: 40
+  CDulti: 0
