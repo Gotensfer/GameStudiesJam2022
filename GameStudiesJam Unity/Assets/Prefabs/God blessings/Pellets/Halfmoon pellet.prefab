@@ -278,6 +278,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   speedMult: 0
+  vfxObject: {fileID: 4279546268201816905, guid: 15ff2306e1308904585a93f6c5f9b725,
+    type: 3}
 --- !u!1 &4804414687128168365
 GameObject:
   m_ObjectHideFlags: 0

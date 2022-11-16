@@ -6,6 +6,7 @@ public class TotsukaPellet : MonoBehaviour
 {
     public int damage;
     Rigidbody rb;
+    [SerializeField] GameObject vfxObject;
 
 
     private void Awake()
@@ -18,6 +19,7 @@ public class TotsukaPellet : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            Destroy(Instantiate(vfxObject, transform.position, Quaternion.identity), 5f);
             other.GetComponent<StandarEnemy>().Damage(damage);
         }
     }

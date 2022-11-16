@@ -6,6 +6,7 @@ public class AscalonPellet : MonoBehaviour
 {
     public int damage;
     Rigidbody rb;
+    [SerializeField] GameObject vfxObject;
 
 
     private void Awake()
@@ -19,6 +20,7 @@ public class AscalonPellet : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             other.GetComponent<StandarEnemy>().Damage(damage);
+            Destroy(Instantiate(vfxObject, transform.position, Quaternion.identity), 5f);
         }
     }
 
