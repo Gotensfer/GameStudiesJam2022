@@ -196,6 +196,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Myth_hercules
       objectReference: {fileID: 0}
+    - target: {fileID: 2486001761323016830, guid: a297e43aac4029d4b92a1a0c0214be44,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8dee5d12f73eeb749b7a6ce094315a79, type: 2}
+    - target: {fileID: 7128040048227601082, guid: a297e43aac4029d4b92a1a0c0214be44,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a297e43aac4029d4b92a1a0c0214be44, type: 3}
 --- !u!4 &1534046055669857437 stripped
