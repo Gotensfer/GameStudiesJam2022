@@ -3949,6 +3949,16 @@ MonoBehaviour:
   ascalonBlessing: {fileID: 163484253347325201, guid: 8d1bf26e44df4c74fa553b5ff7a21851,
     type: 3}
   godsBlessingsContainer: {fileID: 563629718}
+  altarHercules: {fileID: 0}
+  altarMjolnir: {fileID: 0}
+  altarHalfmoon: {fileID: 0}
+  altarTotsuka: {fileID: 0}
+  altarMuramasa: {fileID: 0}
+  altarAscalon: {fileID: 0}
+  northWest: {fileID: 0}
+  northEast: {fileID: 0}
+  southWest: {fileID: 0}
+  southEast: {fileID: 0}
 --- !u!1 &1043020888
 GameObject:
   m_ObjectHideFlags: 0
