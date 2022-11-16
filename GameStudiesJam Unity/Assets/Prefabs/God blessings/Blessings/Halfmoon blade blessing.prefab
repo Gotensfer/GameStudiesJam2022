@@ -44,3 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e662db7697f2fed448f06e0b6bc67bc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pellet: {fileID: 2965993812604251204, guid: b65c61049efa8954890da45600848dd1, type: 3}
+  attackCD: 0
+  damage: 0
+  aoe: 0
+  speedMult: 0
+  proyectileVelocity: 20
+  attackDetectionRange: 20
+  CD: 0
+  config: {fileID: 11400000, guid: 4605e05309dd23c419eef65a45ce62d3, type: 2}
