@@ -122,6 +122,8 @@ public class HalfmoonBlade : GodBlessing
     [SerializeField] float CDForUlti;
     [SerializeField] float CDulti;
 
+    [SerializeField] GameObject hitVfx;
+
     protected override void PerformUltimateAttack()
     {
         if (level >= 6 && CDulti <= 0)
@@ -141,6 +143,9 @@ public class HalfmoonBlade : GodBlessing
 
             halfMoonUltiSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/MedialunaUlti");
             halfMoonUltiSFX.start();
+
+            var vfxInstance = Instantiate(hitVfx, transform.position, Quaternion.identity);
+            Destroy(vfxInstance, 5f);
         }      
     }
 

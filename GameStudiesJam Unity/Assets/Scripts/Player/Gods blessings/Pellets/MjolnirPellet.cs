@@ -7,7 +7,7 @@ public class MjolnirPellet : MonoBehaviour
     int damage;
     float aoe;
 
-    [SerializeField] GameObject vfxObject;
+    [SerializeField] GameObject vfxThunder;
 
     private void Awake()
     {
@@ -21,7 +21,7 @@ public class MjolnirPellet : MonoBehaviour
         {
             Collider[] targets = Physics.OverlapSphere(transform.position, aoe / 2f);
 
-            Destroy(Instantiate(vfxObject, transform.position, Quaternion.identity), 5f);
+            Destroy(Instantiate(vfxThunder, transform.position, Quaternion.identity), 5f);
 
             int len = targets.Length;
             for (int i = 0; i < len; i++)
@@ -50,7 +50,7 @@ public class MjolnirPellet : MonoBehaviour
     {
         Collider[] targets = Physics.OverlapSphere(transform.position, aoe / 2f);
 
-        Destroy(Instantiate(vfxObject, transform.position, Quaternion.identity), 5f);
+        Destroy(Instantiate(vfxThunder, transform.position, Quaternion.identity), 5f);
 
         int len = targets.Length;
         for (int i = 0; i < len; i++)

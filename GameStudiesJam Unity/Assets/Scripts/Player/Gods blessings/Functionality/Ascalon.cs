@@ -117,6 +117,8 @@ public class Ascalon : GodBlessing
     [SerializeField] float CDForUlti;
     [SerializeField] float CDulti;
 
+    [SerializeField] GameObject vfxUlti;
+
     protected override void PerformUltimateAttack()
     {
         print("Attempted");
@@ -137,6 +139,10 @@ public class Ascalon : GodBlessing
             }
 
             print("Success");
+
+            GameObject vfxInstance = Instantiate(vfxUlti, transform.position, Quaternion.identity);
+            vfxInstance.GetComponent<Rigidbody>().AddForce(Vector3.up * 3, ForceMode.Impulse);
+            Destroy(vfxInstance, 10f);
 
             // no me gusta esto
 

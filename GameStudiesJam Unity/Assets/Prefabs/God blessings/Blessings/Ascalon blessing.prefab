@@ -56,3 +56,4 @@ MonoBehaviour:
     m_Bits: 64
   CDForUlti: 80
   CDulti: 0
+  vfxUlti: {fileID: 3433724200308814712, guid: 41c5017e42b27ce41bf5ca8891c83680, type: 3}

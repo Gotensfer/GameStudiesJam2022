@@ -105,6 +105,8 @@ public class Muramasa : GodBlessing
     [SerializeField] float CDForUlti;
     [SerializeField] float CDulti;
 
+    [SerializeField] GameObject ultiVfx;
+
     protected override void PerformUltimateAttack()
     {
         if (level >= 6 && CDulti <= 0)
@@ -118,6 +120,9 @@ public class Muramasa : GodBlessing
 
             muramasaUltiSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/MuramasaUlti");
             muramasaUltiSFX.start();
+
+            var vfxInstance = Instantiate(ultiVfx, transform.position, Quaternion.identity);
+            Destroy(vfxInstance, 5f);
         }      
     }
 

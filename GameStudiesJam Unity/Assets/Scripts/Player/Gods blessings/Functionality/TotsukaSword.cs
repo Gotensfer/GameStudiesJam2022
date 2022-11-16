@@ -117,6 +117,8 @@ public class TotsukaSword : GodBlessing
     [SerializeField] float CDForUlti;
     [SerializeField] float CDulti;
 
+    [SerializeField] GameObject hitVfx;
+
     protected override void PerformUltimateAttack()
     {
         if (level >= 6 && CDulti <= 0)
@@ -136,6 +138,9 @@ public class TotsukaSword : GodBlessing
 
             totsukaUltiSFX = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/TotsukaUlti");
             totsukaUltiSFX.start();
+
+            var vfxInstance = Instantiate(hitVfx, transform.position, Quaternion.identity);
+            Destroy(vfxInstance, 5f);
         }
     }
 
