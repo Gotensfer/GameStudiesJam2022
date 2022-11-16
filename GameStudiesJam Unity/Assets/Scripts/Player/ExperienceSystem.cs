@@ -5,15 +5,19 @@ using UnityEngine.Events;
 
 public class ExperienceSystem : MonoBehaviour
 {
-    public int Experience { get; private set; }
-    public int ExperienceForNextLevel { get; private set; } 
+    [field: SerializeField] public int Experience { get; private set; }
+    [field: SerializeField] public int ExperienceForNextLevel { get; private set; }
 
-    public int PlayerLevel { get; private set; }
+    public static int PlayerLevel { get; private set; }
 
     public UnityEvent levelUpEvent;
 
     private void Start()
     {
+        PlayerLevel = 0;
+
+        LevelUp();
+
         levelUpEvent.AddListener(LevelUp);
     }
 
@@ -29,7 +33,7 @@ public class ExperienceSystem : MonoBehaviour
 
     int CalculateExperienceNeededForLevelUp(int currentLevel)
     {
-        int neededExperience = (int)(10 + Mathf.Pow(100, currentLevel / 10));
+        int neededExperience = (int)(10 + Mathf.Pow(100, (float)currentLevel / 10));
         return neededExperience;
     }
 

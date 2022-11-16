@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class StandarEnemy : MonoBehaviour
 {
@@ -14,9 +15,13 @@ public class StandarEnemy : MonoBehaviour
 
     int health;
 
-    void Start()
+    public UnityEvent enemyDieEvent;
+    public Transform parentForDrops;
+
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        enemyDieEvent.AddListener(Death);
     }
 
     // Update is called once per frame
@@ -47,11 +52,16 @@ public class StandarEnemy : MonoBehaviour
         hero = player;
     }
 
+    public void SetDropHierarchyParent(Transform parent)
+    {
+        parentForDrops = parent;
+    }
+
     public void Damage(int amount)
     {
         health -= amount;
 
-        if (health <= 0) Death();
+        if (health <= 0) enemyDieEvent.Invoke();
     }
 
     void Death()

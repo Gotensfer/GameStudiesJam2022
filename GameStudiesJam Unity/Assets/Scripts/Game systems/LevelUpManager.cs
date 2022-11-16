@@ -47,6 +47,8 @@ public class LevelUpManager : MonoBehaviour
 
     void DeleteGUILevelUpElements()
     {
+        Time.timeScale = 1;
+
         for (int i = 0; i < pickOptionsContainer.Length; i++)
         {
             try
@@ -62,6 +64,8 @@ public class LevelUpManager : MonoBehaviour
 
     public void DisplayLevelUpOptions()
     {
+        Time.timeScale = 0;
+
         if (ownedBlessings.Count != 3)
         {
             Spawn3RandomLevelUpChoices();
