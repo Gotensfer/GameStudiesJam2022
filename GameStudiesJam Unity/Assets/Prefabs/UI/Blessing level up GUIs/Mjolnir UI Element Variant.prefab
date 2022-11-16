@@ -9,6 +9,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6228196327397995756, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
         type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e5ce31ac5d2cc474890a9864409689c1,
+        type: 3}
+    - target: {fileID: 6228196327397995756, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228196327397995756, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228196327397995756, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228196327397995756, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
+        type: 3}
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
@@ -135,7 +156,7 @@ PrefabInstance:
     - target: {fileID: 6228196327922072073, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
         type: 3}
       propertyPath: m_text
-      value: "- 20% CD\n+ 25% Area de da\xF1o\n+ 50% Da\xF1o"
+      value: "Aumenta el da\xF1o\nAumenta el \xE1rea de efecto\nDisminuye el CD"
       objectReference: {fileID: 0}
     - target: {fileID: 6228196327922072073, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
         type: 3}
@@ -161,6 +182,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RaycastTarget
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228196328391310824, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.36078432
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228196328391310824, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.32941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228196328391310824, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.3019608
       objectReference: {fileID: 0}
     - target: {fileID: 6228196328391310824, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
         type: 3}

@@ -7,6 +7,27 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6228196327397995756, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4d5efa409d905b348bd5ede98d322c6a,
+        type: 3}
+    - target: {fileID: 6228196327397995756, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228196327397995756, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228196327397995756, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6228196327764909473, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
         type: 3}
       propertyPath: m_Pivot.x
@@ -116,6 +137,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Muramasa gauntlets UI Element Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228196327922072073, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
+        type: 3}
+      propertyPath: m_text
+      value: "Aumenta el da\xF1o\nAumenta la distancia del tajo\nDisminuye el CD"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228196327922072073, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228196327922072073, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228196328391310824, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.25490198
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228196328391310824, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.16862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 6228196328391310824, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.36862746
       objectReference: {fileID: 0}
     - target: {fileID: 6228196328486679910, guid: 48a67a99aa04abc4aa0bb8c56fd48507,
         type: 3}
